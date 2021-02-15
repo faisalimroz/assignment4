@@ -81,7 +81,7 @@
                             <p>Subtotal</p>
                         </div>
                         <div class="right">
-                            <p>$<span>00</span></p>
+                            <p>$<span id="subtotal">00</span></p>
                         </div>
                     </div>
 
@@ -90,7 +90,7 @@
                             <p>Charge 10% VAT</p>
                         </div>
                         <div class="right">
-                            <p>$<span>00</span></p>
+                            <p>$<span id="vat">00</span></p>
                         </div>
                     </div>
                     <hr>
@@ -99,7 +99,7 @@
                             <h4>Total</h4>
                         </div>
                         <div class="right">
-                            <p>$<span>00</span></p>
+                            <p>$<span id="total">00</span></p>
                         </div>
                     </div>
                 </div>
@@ -118,21 +118,36 @@
     <h1 id="nextPage" class="text-center mt-5">Your ticket has been booked</h1>
 
     <script>
+        //go to the next page
         document.getElementById("bookingButton").addEventListener("click", function () {
             document.getElementById("fullArea").style.display = "none";
             document.getElementById("nextPage").style.display = "block";
         })
+        //plusButton for First class
         document.getElementById("plusButtonFc").addEventListener("click", function () {
            firstClass(true);
+           firstClassSubtotal();
+           
         })
+        //minus button for First class
         document.getElementById("minusButtonFc").addEventListener("click", function () {
            firstClass(false);
+           const readSubtotal = document.getElementById("subtotal").innerText;   
+          const readSubtotalNumber = parseInt(readSubtotal); 
+          const subtotalCount= readSubtotalNumber-150;
+          document.getElementById('subtotal').innerText=subtotalCount;
         })
+        function firstClassSubtotal(count){
+            const readSubtotal = document.getElementById("subtotal").innerText;   
+          const readSubtotalNumber = parseInt(readSubtotal); 
+          const subtotalCount= readSubtotalNumber+150;
+          document.getElementById('subtotal').innerText=subtotalCount;
+        }
         function firstClass(isIncrease){
             const ticketValue = document.getElementById("ticketValue").value;
             const ticketValueNumber = parseFloat(ticketValue);
             let addTicketValue = ticketValueNumber;
-            // const addTicketValue = ticketValueNumber + 1;
+            
             if (isIncrease==true){
                 addTicketValue = ticketValueNumber+1;
             }
@@ -141,6 +156,22 @@
             }
             document.getElementById("ticketValue").value = addTicketValue;
         }
+        //plus button for economy
+        document.getElementById("plusButtonEc").addEventListener("click", function () {
+            economyClass(true);
+            const readSubtotal = document.getElementById("subtotal").innerText;   
+          const readSubtotalNumber = parseInt(readSubtotal); 
+          const subtotalCount= readSubtotalNumber+100;
+          document.getElementById('subtotal').innerText=subtotalCount;
+        })
+        // minus button for economy
+        document.getElementById("minusButtonEc").addEventListener("click", function () {
+           economyClass(false);
+           const readSubtotal = document.getElementById("subtotal").innerText;   
+          const readSubtotalNumber = parseInt(readSubtotal); 
+          const subtotalCount= readSubtotalNumber-100;
+          document.getElementById('subtotal').innerText=subtotalCount;
+        })
         function economyClass(isIncrease){
             const ticketValue = document.getElementById("ticketValues").value;
             const ticketValueNumber = parseFloat(ticketValue);
@@ -154,13 +185,6 @@
             }
             document.getElementById("ticketValues").value = addTicketValue;
         }
-        document.getElementById("plusButtonEc").addEventListener("click", function () {
-            economyClass(true);
-        })
-        
-        document.getElementById("minusButtonEc").addEventListener("click", function () {
-           economyClass(false);
-        })
 
     </script>
   
