@@ -126,23 +126,29 @@
         //plusButton for First class
         document.getElementById("plusButtonFc").addEventListener("click", function () {
            firstClass(true);
-           firstClassSubtotal();
+           firstClassSubtotal(true);
            
         })
         //minus button for First class
         document.getElementById("minusButtonFc").addEventListener("click", function () {
            firstClass(false);
-           const readSubtotal = document.getElementById("subtotal").innerText;   
-          const readSubtotalNumber = parseInt(readSubtotal); 
-          const subtotalCount= readSubtotalNumber-150;
-          document.getElementById('subtotal').innerText=subtotalCount;
+           firstClassSubtotal(false);
         })
+        //subtotal function for first class
         function firstClassSubtotal(count){
             const readSubtotal = document.getElementById("subtotal").innerText;   
           const readSubtotalNumber = parseInt(readSubtotal); 
-          const subtotalCount= readSubtotalNumber+150;
+       
+        let subtotalCount = readSubtotalNumber
+        if (count==true){
+            subtotalCount=readSubtotalNumber+150;
+        }
+        if (count==false && subtotalCount>0){
+            subtotalCount=readSubtotalNumber-150;
+        }
           document.getElementById('subtotal').innerText=subtotalCount;
         }
+        //function for first class
         function firstClass(isIncrease){
             const ticketValue = document.getElementById("ticketValue").value;
             const ticketValueNumber = parseFloat(ticketValue);
@@ -159,19 +165,27 @@
         //plus button for economy
         document.getElementById("plusButtonEc").addEventListener("click", function () {
             economyClass(true);
-            const readSubtotal = document.getElementById("subtotal").innerText;   
-          const readSubtotalNumber = parseInt(readSubtotal); 
-          const subtotalCount= readSubtotalNumber+100;
-          document.getElementById('subtotal').innerText=subtotalCount;
+           economySubtotal(true);
         })
         // minus button for economy
         document.getElementById("minusButtonEc").addEventListener("click", function () {
            economyClass(false);
-           const readSubtotal = document.getElementById("subtotal").innerText;   
-          const readSubtotalNumber = parseInt(readSubtotal); 
-          const subtotalCount= readSubtotalNumber-100;
-          document.getElementById('subtotal').innerText=subtotalCount;
+           economySubtotal(false);
         })
+        function economySubtotal(count){
+            const readSubtotal = document.getElementById("subtotal").innerText;   
+          const readSubtotalNumber = parseInt(readSubtotal); 
+       
+        let subtotalCount = readSubtotalNumber
+        if (count==true){
+            subtotalCount=readSubtotalNumber+100;
+        }
+        if (count==false && subtotalCount>0){
+            subtotalCount=readSubtotalNumber-100;
+        }
+          document.getElementById('subtotal').innerText=subtotalCount;
+        }
+        //function for economy class
         function economyClass(isIncrease){
             const ticketValue = document.getElementById("ticketValues").value;
             const ticketValueNumber = parseFloat(ticketValue);
