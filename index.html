@@ -123,28 +123,43 @@
             document.getElementById("nextPage").style.display = "block";
         })
         document.getElementById("plusButtonFc").addEventListener("click", function () {
-            const ticketValue = document.getElementById("ticketValue").value;
-            const ticketValueNumber = parseFloat(ticketValue);
-            const addTicketValue = ticketValueNumber + 1;
-            document.getElementById("ticketValue").value = addTicketValue;
+           firstClass(true);
         })
         document.getElementById("minusButtonFc").addEventListener("click", function () {
+           firstClass(false);
+        })
+        function firstClass(isIncrease){
             const ticketValue = document.getElementById("ticketValue").value;
             const ticketValueNumber = parseFloat(ticketValue);
-            const reduceTicketValue = ticketValueNumber - 1;
-            document.getElementById("ticketValue").value = reduceTicketValue;
-        })
-        document.getElementById("plusButtonEc").addEventListener("click", function () {
+            let addTicketValue = ticketValueNumber;
+            // const addTicketValue = ticketValueNumber + 1;
+            if (isIncrease==true){
+                addTicketValue = ticketValueNumber+1;
+            }
+            if (isIncrease==false && ticketValueNumber>0){
+                addTicketValue= ticketValueNumber-1;
+            }
+            document.getElementById("ticketValue").value = addTicketValue;
+        }
+        function economyClass(isIncrease){
             const ticketValue = document.getElementById("ticketValues").value;
             const ticketValueNumber = parseFloat(ticketValue);
-            const addTicketValue = ticketValueNumber + 1;
+            let addTicketValue = ticketValueNumber;
+            // const addTicketValue = ticketValueNumber + 1;
+            if (isIncrease==true){
+                addTicketValue = ticketValueNumber+1;
+            }
+            if (isIncrease==false && ticketValueNumber>0){
+                addTicketValue= ticketValueNumber-1;
+            }
             document.getElementById("ticketValues").value = addTicketValue;
+        }
+        document.getElementById("plusButtonEc").addEventListener("click", function () {
+            economyClass(true);
         })
+        
         document.getElementById("minusButtonEc").addEventListener("click", function () {
-            const ticketValue = document.getElementById("ticketValues").value;
-            const ticketValueNumber = parseFloat(ticketValue);
-            const reduceTicketValue = ticketValueNumber - 1;
-            document.getElementById("ticketValues").value = reduceTicketValue;
+           economyClass(false);
         })
 
     </script>
