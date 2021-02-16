@@ -128,6 +128,7 @@
            firstClass(true);
            firstClassSubtotal(true);
            vatCount(true);
+           totalPrice(true);
            
         })
         //minus button for First class
@@ -135,7 +136,21 @@
            firstClass(false);
            firstClassSubtotal(false);
            vatCount(false);
+           totalPrice(false);
         })
+        //total amount for first class
+        function totalPrice(count){
+            const readTotal= document.getElementById("total").innerText;
+           const convertTotal = parseFloat(readTotal);
+           let newTotalAmount = convertTotal;
+           if(count==true){
+             totalAmount = convertTotal+165;
+           }
+           if(count==false && convertTotal>0){
+               totalAmount= convertTotal-165;
+           }
+           document.getElementById("total").innerText=totalAmount;
+        }
         //vat function for first class
         function vatCount(count){
             const readVat = document.getElementById("vat").innerText;
@@ -184,13 +199,28 @@
             economyClass(true);
            economySubtotal(true);
            vatCountEconomy(true);
+           totalPriceEconomy(true);
         })
         // minus button for economy
         document.getElementById("minusButtonEc").addEventListener("click", function () {
            economyClass(false);
            economySubtotal(false);
            vatCountEconomy(false);
+           totalPriceEconomy(false);
         })
+        //total amount for economy
+        function totalPriceEconomy(count){
+            const readTotal= document.getElementById("total").innerText;
+           const convertTotal = parseFloat(readTotal);
+           let newTotalAmount = convertTotal;
+           if(count==true){
+             totalAmount = convertTotal+110;
+           }
+           if(count==false && convertTotal>0){
+               totalAmount= convertTotal-110;
+           }
+           document.getElementById("total").innerText=totalAmount;
+        }
         //vat count for economy
         function vatCountEconomy(count){
             const readVat = document.getElementById("vat").innerText;
