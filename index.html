@@ -127,13 +127,29 @@
         document.getElementById("plusButtonFc").addEventListener("click", function () {
            firstClass(true);
            firstClassSubtotal(true);
+           vatCount(true);
            
         })
         //minus button for First class
         document.getElementById("minusButtonFc").addEventListener("click", function () {
            firstClass(false);
            firstClassSubtotal(false);
+           vatCount(false);
         })
+        //vat function for first class
+        function vatCount(count){
+            const readVat = document.getElementById("vat").innerText;
+           const convertVat= parseFloat(readVat);
+       
+         let newVatNumber = convertVat
+         if(count==true){
+             newVatNumber= convertVat+15;
+         }
+         if(count==false &&convertVat>0){
+             newVatNumber=convertVat-15;
+         }
+           document.getElementById('vat').innerText= newVatNumber;
+        }
         //subtotal function for first class
         function firstClassSubtotal(count){
             const readSubtotal = document.getElementById("subtotal").innerText;   
@@ -147,6 +163,7 @@
             subtotalCount=readSubtotalNumber-150;
         }
           document.getElementById('subtotal').innerText=subtotalCount;
+        
         }
         //function for first class
         function firstClass(isIncrease){
@@ -166,12 +183,28 @@
         document.getElementById("plusButtonEc").addEventListener("click", function () {
             economyClass(true);
            economySubtotal(true);
+           vatCountEconomy(true);
         })
         // minus button for economy
         document.getElementById("minusButtonEc").addEventListener("click", function () {
            economyClass(false);
            economySubtotal(false);
+           vatCountEconomy(false);
         })
+        //vat count for economy
+        function vatCountEconomy(count){
+            const readVat = document.getElementById("vat").innerText;
+           const convertVat= parseFloat(readVat);
+       
+         let newVatNumber = convertVat
+         if(count==true){
+             newVatNumber= convertVat+10;
+         }
+         if(count==false &&convertVat>0){
+             newVatNumber=convertVat-10;
+         }
+           document.getElementById('vat').innerText= newVatNumber;
+        }
         function economySubtotal(count){
             const readSubtotal = document.getElementById("subtotal").innerText;   
           const readSubtotalNumber = parseInt(readSubtotal); 
