@@ -125,146 +125,148 @@
         })
         //plusButton for First class
         document.getElementById("plusButtonFc").addEventListener("click", function () {
-           firstClass(true);
-           firstClassSubtotal(true);
-           vatCount(true);
-           totalPrice(true);
-           
+            firstClass(true);
+            firstClassSubtotal(true);
+            vatCount(true);
+            totalPrice(true);
+
         })
         //minus button for First class
         document.getElementById("minusButtonFc").addEventListener("click", function () {
-           firstClass(false);
-           firstClassSubtotal(false);
-           vatCount(false);
-           totalPrice(false);
+            firstClass(false);
+            firstClassSubtotal(false);
+            vatCount(false);
+            totalPrice(false);
         })
-        //total amount for first class
-        function totalPrice(count){
-            const readTotal= document.getElementById("total").innerText;
-           const convertTotal = parseFloat(readTotal);
-           let newTotalAmount = convertTotal;
-           if(count==true){
-             totalAmount = convertTotal+165;
-           }
-           if(count==false && convertTotal>0){
-               totalAmount= convertTotal-165;
-           }
-           document.getElementById("total").innerText=totalAmount;
-        }
-        //vat function for first class
-        function vatCount(count){
-            const readVat = document.getElementById("vat").innerText;
-           const convertVat= parseFloat(readVat);
-       
-         let newVatNumber = convertVat
-         if(count==true){
-             newVatNumber= convertVat+15;
-         }
-         if(count==false &&convertVat>0){
-             newVatNumber=convertVat-15;
-         }
-           document.getElementById('vat').innerText= newVatNumber;
-        }
-        //subtotal function for first class
-        function firstClassSubtotal(count){
-            const readSubtotal = document.getElementById("subtotal").innerText;   
-          const readSubtotalNumber = parseInt(readSubtotal); 
-       
-        let subtotalCount = readSubtotalNumber
-        if (count==true){
-            subtotalCount=readSubtotalNumber+150;
-        }
-        if (count==false && subtotalCount>0){
-            subtotalCount=readSubtotalNumber-150;
-        }
-          document.getElementById('subtotal').innerText=subtotalCount;
-        
-        }
         //function for first class
-        function firstClass(isIncrease){
+        function firstClass(isIncrease) {
             const ticketValue = document.getElementById("ticketValue").value;
             const ticketValueNumber = parseFloat(ticketValue);
             let addTicketValue = ticketValueNumber;
-            
-            if (isIncrease==true){
-                addTicketValue = ticketValueNumber+1;
+
+            if (isIncrease == true) {
+                addTicketValue = ticketValueNumber + 1;
             }
-            if (isIncrease==false && ticketValueNumber>0){
-                addTicketValue= ticketValueNumber-1;
+            if (isIncrease == false && ticketValueNumber > 0) {
+                addTicketValue = ticketValueNumber - 1;
             }
             document.getElementById("ticketValue").value = addTicketValue;
+        }
+        //subtotal function for first class
+        function firstClassSubtotal(count) {
+            const readSubtotal = document.getElementById("subtotal").innerText;
+            const readSubtotalNumber = parseInt(readSubtotal);
+
+            let subtotalCount = readSubtotalNumber
+            if (count == true) {
+                subtotalCount = readSubtotalNumber + 150;
+            }
+            if (count == false && subtotalCount > 0) {
+                subtotalCount = readSubtotalNumber - 150;
+            }
+            document.getElementById('subtotal').innerText = subtotalCount;
+
+        }
+        //vat function for first class
+        function vatCount(count) {
+            const readVat = document.getElementById("vat").innerText;
+            const convertVat = parseFloat(readVat);
+
+            let newVatNumber = convertVat
+            if (count == true) {
+                newVatNumber = convertVat + 15;
+            }
+            if (count == false && convertVat > 0) {
+                newVatNumber = convertVat - 15;
+            }
+            document.getElementById('vat').innerText = newVatNumber;
+        }
+        //total amount for first class
+        function totalPrice(count) {
+            const readTotal = document.getElementById("total").innerText;
+            const convertTotal = parseFloat(readTotal);
+            let newTotalAmount = convertTotal;
+            if (count == true) {
+                totalAmount = convertTotal + 165;
+            }
+            if (count == false && convertTotal > 0) {
+                totalAmount = convertTotal - 165;
+            }
+            document.getElementById("total").innerText = totalAmount;
         }
         //plus button for economy
         document.getElementById("plusButtonEc").addEventListener("click", function () {
             economyClass(true);
-           economySubtotal(true);
-           vatCountEconomy(true);
-           totalPriceEconomy(true);
+            economySubtotal(true);
+            vatCountEconomy(true);
+            totalPriceEconomy(true);
         })
         // minus button for economy
         document.getElementById("minusButtonEc").addEventListener("click", function () {
-           economyClass(false);
-           economySubtotal(false);
-           vatCountEconomy(false);
-           totalPriceEconomy(false);
+            economyClass(false);
+            economySubtotal(false);
+            vatCountEconomy(false);
+            totalPriceEconomy(false);
         })
-        //total amount for economy
-        function totalPriceEconomy(count){
-            const readTotal= document.getElementById("total").innerText;
-           const convertTotal = parseFloat(readTotal);
-           let newTotalAmount = convertTotal;
-           if(count==true){
-             totalAmount = convertTotal+110;
-           }
-           if(count==false && convertTotal>0){
-               totalAmount= convertTotal-110;
-           }
-           document.getElementById("total").innerText=totalAmount;
-        }
-        //vat count for economy
-        function vatCountEconomy(count){
-            const readVat = document.getElementById("vat").innerText;
-           const convertVat= parseFloat(readVat);
-       
-         let newVatNumber = convertVat
-         if(count==true){
-             newVatNumber= convertVat+10;
-         }
-         if(count==false &&convertVat>0){
-             newVatNumber=convertVat-10;
-         }
-           document.getElementById('vat').innerText= newVatNumber;
-        }
-        function economySubtotal(count){
-            const readSubtotal = document.getElementById("subtotal").innerText;   
-          const readSubtotalNumber = parseInt(readSubtotal); 
-       
-        let subtotalCount = readSubtotalNumber
-        if (count==true){
-            subtotalCount=readSubtotalNumber+100;
-        }
-        if (count==false && subtotalCount>0){
-            subtotalCount=readSubtotalNumber-100;
-        }
-          document.getElementById('subtotal').innerText=subtotalCount;
-        }
         //function for economy class
-        function economyClass(isIncrease){
+        function economyClass(isIncrease) {
             const ticketValue = document.getElementById("ticketValues").value;
             const ticketValueNumber = parseFloat(ticketValue);
             let addTicketValue = ticketValueNumber;
-            // const addTicketValue = ticketValueNumber + 1;
-            if (isIncrease==true){
-                addTicketValue = ticketValueNumber+1;
+            if (isIncrease == true) {
+                addTicketValue = ticketValueNumber + 1;
             }
-            if (isIncrease==false && ticketValueNumber>0){
-                addTicketValue= ticketValueNumber-1;
+            if (isIncrease == false && ticketValueNumber > 0) {
+                addTicketValue = ticketValueNumber - 1;
             }
             document.getElementById("ticketValues").value = addTicketValue;
         }
+        //subtotal for economy
+        function economySubtotal(count) {
+            const readSubtotal = document.getElementById("subtotal").innerText;
+            const readSubtotalNumber = parseInt(readSubtotal);
+
+            let subtotalCount = readSubtotalNumber
+            if (count == true) {
+                subtotalCount = readSubtotalNumber + 100;
+            }
+            if (count == false && subtotalCount > 0) {
+                subtotalCount = readSubtotalNumber - 100;
+            }
+            document.getElementById('subtotal').innerText = subtotalCount;
+        }
+        //vat count for economy
+        function vatCountEconomy(count) {
+            const readVat = document.getElementById("vat").innerText;
+            const convertVat = parseFloat(readVat);
+
+            let newVatNumber = convertVat
+            if (count == true) {
+                newVatNumber = convertVat + 10;
+            }
+            if (count == false && convertVat > 0) {
+                newVatNumber = convertVat - 10;
+            }
+            document.getElementById('vat').innerText = newVatNumber;
+        }
+
+        //total amount for economy
+        function totalPriceEconomy(count) {
+            const readTotal = document.getElementById("total").innerText;
+            const convertTotal = parseFloat(readTotal);
+            let newTotalAmount = convertTotal;
+            if (count == true) {
+                totalAmount = convertTotal + 110;
+            }
+            if (count == false && convertTotal > 0) {
+                totalAmount = convertTotal - 110;
+            }
+            document.getElementById("total").innerText = totalAmount;
+        }
+
 
     </script>
-  
+
     <!--Thank You-->
 </body>
 
